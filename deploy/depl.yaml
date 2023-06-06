@@ -21,7 +21,7 @@ spec:
       serviceAccountName: hello-kubernetes-release-name
       containers:
         - name: hello-kubernetes
-          image: "jan104/myimage:newtag"
+          image: "$CONTAINER_IMAGE:$IMAGE_TAG"
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
