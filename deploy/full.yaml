@@ -19,11 +19,12 @@ metadata:
     app.kubernetes.io/instance: release-name
     app.kubernetes.io/version: "1.10"
 spec:
-  type: LoadBalancer
+  type: NodePort
   ports:
     - port: 80
       targetPort: http
       protocol: TCP
+      nodePort: 31009
       name: http
   selector:
     app.kubernetes.io/name: hello-kubernetes
