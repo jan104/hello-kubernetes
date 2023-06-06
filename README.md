@@ -4,6 +4,7 @@
 
 This container image can be deployed on a Kubernetes cluster. It runs a web app, that displays the following:
 
+test
 - a default **Hello world!** message
 - namespace, pod, and node details
 - container image details
