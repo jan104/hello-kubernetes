@@ -15,7 +15,7 @@ jobs:
     env:
       CONTAINER_REGISTRY: docker.io
       CONTAINER_IMAGE: jan104/hello-kubernetes
-      IMAGE_TAG: ${{ GITHUB_SHA }}
+      IMAGE_TAG: ${{ github.sha }}
 
     steps:
 
