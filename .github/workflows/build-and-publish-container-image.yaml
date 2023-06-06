@@ -55,4 +55,15 @@ jobs:
           docker push $IMAGE:$IMAGE_VERSION
           docker push $IMAGE:$IMAGE_TAG
 
+      - name: Update deployment.yaml
+        run: |
+          yq eval '.spec.template.spec.containers[0].image = "jan104/myimage:newtag"' -i ../../deploy/depl.yaml
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add -A
+          git commit -m "Updated deployment image tag"
+          git push
 
