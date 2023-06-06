@@ -58,8 +58,7 @@ jobs:
       - name: Update deployment.yaml
         run: |
           yq eval '.spec.template.spec.containers[0].image = "jan104/myimage:newtag"' -i ./deploy/depl.yaml
-          pwd
-          ls -l
+          git branch -v
 
       - name: Commit and push changes
         run: |
@@ -67,5 +66,5 @@ jobs:
           git config --global user.email 'github-actions@github.com'
           git add -A
           git commit -m "Updated deployment image tag"
-          git push
+          git push origin main
 
