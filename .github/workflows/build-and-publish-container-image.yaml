@@ -60,7 +60,7 @@ jobs:
 
       - name: Update deployment.yaml
         run: |
-          yq eval '.spec.template.spec.containers[0].image = "${{ secrets.DOCKER_USERNAME }}/myimage:newtag"' -i ./deploy/depl.yaml
+          yq eval '.spec.template.spec.containers[0].image = "${{ CONTAINER_IMAGE }}:${{ IMAGE_TAG }}"' -i ./deploy/depl.yaml
           git branch -v
 
       - name: Commit and push changes
